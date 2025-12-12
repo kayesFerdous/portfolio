@@ -21,32 +21,35 @@ export function FeaturedProjects() {
   const featuredProjects = projects.filter((p) => p.featured)
 
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden">
+    <section className="py-20 md:py-32 relative overflow-hidden bg-black border-t border-white/10">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-[200px_1fr] gap-8 md:gap-16 mb-12 md:mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="hidden lg:block"
-          >
-            <h2 className="text-8xl xl:text-9xl condensed-display text-muted-foreground/20">01</h2>
-          </motion.div>
-
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="space-y-4"
+            className="space-y-2"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance">
-              Featured <span className="gradient-text">Projects</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter uppercase">
+              Featured Projects
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl text-balance">
-              A selection of my recent work in <span className="text-accent">full-stack development</span> and{" "}
-              <span className="text-accent">AI applications</span>
+            <p className="text-sm font-mono text-neutral-500 uppercase tracking-widest">
+              Selected works & experiments
             </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <Link 
+              href="/projects" 
+              className="group flex items-center gap-2 text-sm font-mono uppercase tracking-wider text-white hover:text-neutral-300 transition-colors"
+            >
+              View All <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </motion.div>
         </div>
 

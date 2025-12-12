@@ -51,126 +51,77 @@ export function Hero() {
   }, [reduceMotion])
 
   return (
-    <header className="relative w-full min-h-screen overflow-hidden">
-      {enableParticles ? (
-        <InteractiveParticles />
-      ) : (
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 bg-gradient-to-br from-background via-primary/5 to-background"
-        />
+    <header className="relative w-full min-h-screen overflow-hidden bg-black flex items-center justify-center">
+      {enableParticles && (
+        <div className="absolute inset-0 opacity-40">
+          <InteractiveParticles />
+        </div>
       )}
-
-      {/* Subtle overlay for better text contrast */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-background/80 via-background/50 to-background/90"
-      />
 
       <motion.div
         initial="hidden"
         animate="show"
         variants={heroVariants}
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-20 flex items-center justify-center min-h-screen"
+        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center justify-center text-center"
       >
-        <div className="w-full max-w-4xl text-center">
-          <motion.div variants={floatUp} className="mb-8 flex justify-center">
-            <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl">
-              <Image
-                src="/professional-developer-portrait.png"
-                alt="Fardows Alam Kayes"
-                width={128}
-                height={128}
-                className="object-cover"
-              />
-            </div>
-          </motion.div>
-
-          <motion.nav
-            variants={floatUp}
-            className="mb-8 flex items-center justify-center gap-3 text-xs uppercase tracking-widest text-muted-foreground"
-          >
+        <motion.div variants={floatUp} className="mb-12 relative group">
+          {/* Profile Image Container with Corner Marks */}
+          <div className="relative w-40 h-40 md:w-48 md:h-48 border border-white/10 bg-black overflow-hidden">
+            {/* Corner Marks */}
+            <div className="absolute top-0 left-0 w-2 h-2 bg-white z-20" />
+            <div className="absolute top-0 right-0 w-2 h-2 bg-white z-20" />
+            <div className="absolute bottom-0 left-0 w-2 h-2 bg-white z-20" />
+            <div className="absolute bottom-0 right-0 w-2 h-2 bg-white z-20" />
             
-          </motion.nav>
+            <Image
+              src="/professional-developer-portrait.png"
+              alt="Fardows Alam Kayes"
+              fill
+              className="object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500"
+            />
+          </div>
+        </motion.div>
 
-          <h1 className="relative mb-6">
-            <motion.span
-              variants={headlineWord}
-              className="block text-[clamp(32px,8vw,96px)] tracking-tight font-bold uppercase leading-[1.1] text-foreground"
-            >
-              Fardows Alam Kayes
-            </motion.span>
-          </h1>
-
-          <motion.p variants={floatUp} className="mt-8 max-w-2xl mx-auto text-lg text-muted-foreground leading-relaxed">
-            I design and build fast, animated frontend experiences and robust backend systems. Specializing in Next.js,
-            FastAPI, and AI applications.
-          </motion.p>
-
-          <motion.div variants={floatUp} className="mt-10 flex items-center justify-center gap-4 flex-wrap">
-            <Link
-              href="#projects"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-foreground text-background text-sm font-semibold shadow-lg hover:scale-105 transform transition-transform"
-            >
-              See Projects
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-primary/30 text-sm text-foreground bg-card/30 backdrop-blur hover:bg-card/50 transition-colors"
-            >
-              <Mail className="h-4 w-4" />
-              Contact
-            </Link>
-          </motion.div>
-
-          <motion.div
-            variants={floatUp}
-            className="mt-16 max-w-2xl mx-auto rounded-2xl border border-border/50 bg-card/40 backdrop-blur-xl p-5 shadow-2xl"
-            role="region"
-            aria-label="Code snippet"
+        <h1 className="relative mb-6 flex flex-col items-center">
+          <motion.span
+            variants={headlineWord}
+            className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-white"
           >
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-3 h-3 rounded-full bg-red-400/80" />
-              <span className="w-3 h-3 rounded-full bg-yellow-400/80" />
-              <span className="w-3 h-3 rounded-full bg-green-400/80" />
-              <div className="ml-auto text-xs text-muted-foreground font-mono">~/projects</div>
-            </div>
+            Fardows
+          </motion.span>
+          <motion.span
+            variants={headlineWord}
+            className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-neutral-500"
+          >
+            Alam Kayes
+          </motion.span>
+        </h1>
 
-            <pre className="text-sm text-foreground font-mono overflow-x-auto">
-              <code>
-                <span className="text-muted-foreground">$</span> <span className="text-primary">npm run</span>{" "}
-                <span className="text-accent">build</span>
-                {"\n"}
-                <span className="text-green-400">✓</span>{" "}
-                <span className="text-muted-foreground">Compiled successfully</span>
-              </code>
-            </pre>
-          </motion.div>
+        <motion.p
+          variants={floatUp}
+          className="max-w-2xl mx-auto text-sm md:text-base font-mono text-neutral-400 uppercase tracking-widest mb-12"
+        >
+          Full Stack Developer & AI Engineer
+        </motion.p>
 
-          {/* Social links */}
-          <motion.div variants={floatUp} className="mt-8 flex items-center justify-center gap-6">
+        <motion.div variants={floatUp} className="flex flex-wrap justify-center gap-6">
+          {[
+            { icon: Github, href: "https://github.com/kayesFerdous", label: "GitHub" },
+            { icon: Linkedin, href: "https://linkedin.com/in/kayees-ferdous", label: "LinkedIn" },
+            { icon: Mail, href: "mailto:kayesfardows@gmail.com", label: "Email" },
+          ].map((social) => (
             <Link
-              href="https://github.com/kayesFerdous"
+              key={social.label}
+              href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="GitHub Profile"
+              className="group flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-white hover:text-neutral-300 transition-colors"
             >
-              <Github className="h-5 w-5" />
+              <social.icon className="h-4 w-4" />
+              <span className="hidden md:inline">{social.label}</span>
             </Link>
-            <Link
-              href="https://linkedin.com/in/kayees-ferdous"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="LinkedIn Profile"
-            >
-              <Linkedin className="h-5 w-5" />
-            </Link>
-          </motion.div>
-        </div>
+          ))}
+        </motion.div>
       </motion.div>
     </header>
   )
