@@ -1,0 +1,62 @@
+---
+title: "AskMyPDF — Building a RAG Document Assistant"
+slug: "askmypdf"
+date: "2024-11-15"
+tags: ["AI", "RAG", "FastAPI"]
+readingTime: 8
+coverImage: "/blog/askmypdf-cover.jpg"
+excerpt: "Exploring the architecture and implementation of a Retrieval-Augmented Generation system for intelligent document querying."
+---
+
+# AskMyPDF — Building a RAG Document Assistant
+
+Building an AI-powered document assistant that understands context and provides accurate answers is a fascinating challenge. In this post, I'll walk through the architecture and key decisions behind AskMyPDF, a RAG (Retrieval-Augmented Generation) system that makes PDF documents conversational.
+
+## The Challenge
+
+Traditional search relies on keyword matching, which often misses the semantic meaning of queries. Users might ask "What are the revenue projections?" when the document uses terms like "financial forecast" or "income estimates." A RAG system bridges this gap by understanding intent and context.
+
+## System Architecture
+
+The system consists of three main components:
+
+1. **Document Processing Pipeline**: Extracts text from PDFs, chunks content intelligently, and generates embeddings
+2. **Vector Database**: Stores document embeddings for fast semantic search
+3. **LLM Integration**: Combines retrieved context with user queries to generate accurate responses
+
+\`\`\`python
+from fastapi import FastAPI, UploadFile
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import Chroma
+
+app = FastAPI()
+
+async def process_document(file: UploadFile):
+    # Extract text from PDF
+    text = extract_pdf_text(file)
+    
+    # Split into chunks with overlap
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000,
+        chunk_overlap=200
+    )
+    chunks = splitter.split_text(text)
+    
+    # Generate embeddings and store
+    embeddings = OpenAIEmbeddings()
+    vectorstore = Chroma.from_texts(chunks, embeddings)
+    
+    return vectorstore
+\`\`\`
+
+## Key Learnings
+
+Building this system taught me several important lessons:
+
+- **Chunking Strategy Matters**: The size and overlap of text chunks significantly impacts retrieval quality
+- **Context Window Management**: Balancing context size with LLM token limits requires careful engineering
+- **Error Handling**: Gracefully handling malformed PDFs and edge cases is crucial for production use
+
+The result is a system that can answer complex questions about documents with high accuracy, making information more accessible and actionable.
+\`\`\`

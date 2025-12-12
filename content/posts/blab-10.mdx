@@ -1,0 +1,74 @@
+---
+title: "Blab-10: Real-Time Chat Platform"
+slug: "blab-10"
+date: "2024-09-08"
+tags: ["Realtime", "Next.js", "TypeScript"]
+readingTime: 7
+coverImage: "/blog/blab10-cover.jpg"
+excerpt: "Building a modern real-time chat platform with Next.js, WebSockets, and optimistic UI updates."
+---
+
+# Blab-10: Real-Time Chat Platform
+
+Real-time communication is at the heart of modern web applications. Blab-10 is a chat platform that delivers instant messaging with a focus on performance, reliability, and user experience.
+
+## Technical Stack
+
+The platform is built with:
+- **Next.js 14**: App Router with React Server Components
+- **WebSockets**: For real-time bidirectional communication
+- **PostgreSQL**: Message persistence and user data
+- **Redis**: Presence tracking and message queuing
+
+## Real-Time Architecture
+
+The key challenge in building a chat app is maintaining consistency between client and server state while providing instant feedback to users.
+
+\`\`\`typescript
+// Client-side message sending with optimistic updates
+const sendMessage = async (content: string) => {
+  const optimisticMessage = {
+    id: generateTempId(),
+    content,
+    userId: currentUser.id,
+    timestamp: new Date(),
+    status: 'sending'
+  }
+  
+  // Immediately show in UI
+  addMessageToUI(optimisticMessage)
+  
+  try {
+    // Send to server
+    const result = await ws.send({
+      type: 'message',
+      data: { content, roomId }
+    })
+    
+    // Update with server confirmation
+    updateMessageStatus(optimisticMessage.id, 'sent')
+  } catch (error) {
+    // Handle failure gracefully
+    updateMessageStatus(optimisticMessage.id, 'failed')
+  }
+}
+\`\`\`
+
+## Scaling Considerations
+
+As the user base grows, several scaling strategies become important:
+
+1. **Connection Pooling**: Efficiently manage WebSocket connections across multiple server instances
+2. **Message Sharding**: Distribute message load across database partitions
+3. **Presence Optimization**: Use Redis pub/sub for real-time presence updates without database load
+
+## User Experience Features
+
+Beyond basic messaging, Blab-10 includes:
+- **Typing indicators**: See when others are composing messages
+- **Read receipts**: Know when messages have been seen
+- **Rich media**: Support for images, links, and file uploads
+- **Message reactions**: Quick emoji responses to messages
+
+The result is a chat platform that feels instant and responsive, even under heavy load. Building Blab-10 was an excellent exercise in real-time systems design and performance optimization.
+\`\`\`

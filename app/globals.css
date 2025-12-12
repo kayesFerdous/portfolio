@@ -1,0 +1,197 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.125 0.01 240);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.16 0.015 240);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.16 0.015 240);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.75 0.15 195);
+  --primary-foreground: oklch(0.125 0.01 240);
+  --secondary: oklch(0.22 0.02 240);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.22 0.02 240);
+  --muted-foreground: oklch(0.65 0.02 240);
+  --accent: oklch(0.75 0.15 195);
+  --accent-foreground: oklch(0.125 0.01 240);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.28 0.02 240);
+  --input: oklch(0.28 0.02 240);
+  --ring: oklch(0.75 0.15 195);
+  --chart-1: oklch(0.75 0.15 195);
+  --chart-2: oklch(0.65 0.18 280);
+  --chart-3: oklch(0.7 0.12 140);
+  --chart-4: oklch(0.65 0.15 60);
+  --chart-5: oklch(0.7 0.14 330);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.16 0.015 240);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.75 0.15 195);
+  --sidebar-primary-foreground: oklch(0.125 0.01 240);
+  --sidebar-accent: oklch(0.22 0.02 240);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(0.28 0.02 240);
+  --sidebar-ring: oklch(0.75 0.15 195);
+}
+
+.dark {
+  --background: rgb(0, 0, 0);
+  --foreground: hsl(210 40% 98%);
+  --card: rgb(8, 8, 8);
+  --card-foreground: rgb(255, 255, 255);
+  --popover: hsl(222.2 84% 4.9%);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: rgb(16, 185, 129);
+  --primary-foreground: rgb(24, 24, 24);
+  --secondary: rgb(56, 74, 102);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: rgb(0, 0, 0);
+  --muted-foreground: oklch(0.65 0.02 240);
+  --accent: rgb(30, 41, 59);
+  --accent-foreground: oklch(0.125 0.01 240);
+  --destructive: hsl(0 62.8% 30.6%);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: rgb(22, 22, 22);
+  --input: hsl(217.2 32.6% 17.5%);
+  --ring: hsl(224.3 76.3% 94.1%);
+  --chart-1: hsl(217.2 91.2% 59.8%);
+  --chart-2: hsl(212 95% 68%);
+  --chart-3: hsl(216 92% 60%);
+  --chart-4: hsl(210 98% 78%);
+  --chart-5: hsl(212 97% 87%);
+  --sidebar: hsl(240 5.9% 10%);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.75 0.15 195);
+  --sidebar-primary-foreground: oklch(0.125 0.01 240);
+  --sidebar-accent: oklch(0.22 0.02 240);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(0.28 0.02 240);
+  --sidebar-ring: oklch(0.75 0.15 195);
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback';
+  --font-mono: "IBM Plex Mono", "IBM Plex Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-serif: "Playfair Display", "Playfair Display Fallback";
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/80 backdrop-blur-lg;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+  }
+
+  .terminal-shadow {
+    box-shadow: 0 0 20px rgba(119, 215, 231, 0.3);
+  }
+
+  .glow {
+    box-shadow: 0 0 15px rgba(119, 215, 231, 0.5);
+  }
+
+  /* Adding vertical grid background utility */
+  .vertical-grid::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(119, 215, 231, 0.03) 0px,
+      rgba(119, 215, 231, 0.03) 1px,
+      transparent 1px,
+      transparent calc(100% / 14)
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Adding condensed display font styles */
+  .condensed-display {
+    font-family: var(--font-sans);
+    font-weight: 900;
+    font-stretch: ultra-condensed;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  /* Adding glass pill navigation styles */
+  .glass-pill {
+    @apply bg-card/60 backdrop-blur-xl border border-primary/20;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(119, 215, 231, 0.1);
+  }
+}
+
+@layer base {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Import scrollytelling styles */
+@import "../styles/scrollytelling.css";
+
+/* Import blog styles */
+@import "../styles/blog.css";

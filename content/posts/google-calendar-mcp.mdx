@@ -1,0 +1,74 @@
+---
+title: "Building a Model Context Protocol Calendar Server"
+slug: "google-calendar-mcp"
+date: "2024-10-22"
+tags: ["API", "Google", "Automation"]
+readingTime: 6
+coverImage: "/blog/calendar-mcp-cover.jpg"
+excerpt: "Creating a seamless bridge between AI assistants and Google Calendar using the Model Context Protocol."
+---
+
+# Building a Model Context Protocol Calendar Server
+
+The Model Context Protocol (MCP) is revolutionizing how AI assistants interact with external tools and services. In this post, I'll share how I built a calendar server that lets AI assistants manage Google Calendar events naturally.
+
+## What is MCP?
+
+MCP provides a standardized way for AI models to interact with external data sources and tools. Instead of building custom integrations for each AI assistant, MCP servers expose capabilities that any MCP-compatible client can use.
+
+## Architecture Overview
+
+The calendar server implements three core MCP operations:
+
+1. **Tools**: Actions the AI can take (create event, update event, delete event)
+2. **Resources**: Data the AI can query (upcoming events, calendar availability)
+3. **Prompts**: Pre-built templates for common workflows
+
+\`\`\`typescript
+import { MCPServer } from '@modelcontextprotocol/sdk'
+import { google } from 'googleapis'
+
+const server = new MCPServer({
+  name: 'google-calendar-mcp',
+  version: '1.0.0'
+})
+
+// Register calendar tools
+server.tool({
+  name: 'create_event',
+  description: 'Create a new calendar event',
+  parameters: {
+    summary: { type: 'string', required: true },
+    start: { type: 'string', required: true },
+    end: { type: 'string', required: true }
+  },
+  handler: async (params) => {
+    const calendar = google.calendar('v3')
+    const event = await calendar.events.insert({
+      calendarId: 'primary',
+      requestBody: {
+        summary: params.summary,
+        start: { dateTime: params.start },
+        end: { dateTime: params.end }
+      }
+    })
+    return { success: true, eventId: event.data.id }
+  }
+})
+\`\`\`
+
+## Authentication Flow
+
+One of the trickiest parts was implementing secure OAuth 2.0 authentication that works seamlessly with the MCP protocol. The server maintains refresh tokens and handles token expiration gracefully.
+
+## Real-World Usage
+
+With this MCP server, users can simply tell their AI assistant:
+- "Schedule a team meeting for tomorrow at 2pm"
+- "What's on my calendar next week?"
+- "Move my 3pm meeting to 4pm"
+
+The AI handles the natural language understanding, while the MCP server manages the actual calendar operations.
+
+This project demonstrates how MCP can bridge the gap between conversational AI and real-world productivity tools.
+\`\`\`

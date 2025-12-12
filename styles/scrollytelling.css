@@ -1,0 +1,60 @@
+/* Scrollytelling styles for pinned container and optimizations */
+
+.scrollytelling-root {
+  position: relative;
+  will-change: contents;
+}
+
+.scrollytelling-pin {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  contain: paint;
+}
+
+.scrollytelling-track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.scene-wrapper {
+  width: 100vw;
+  height: 100%;
+  flex-shrink: 0;
+  will-change: opacity;
+}
+
+.scene-panel {
+  contain: layout style paint;
+}
+
+/* Mobile fallback: stacked sections */
+.scrollytelling-mobile {
+  display: block;
+}
+
+/* Progress indicator positioning */
+.scrollytelling-pin .glass-pill {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .scrollytelling-track,
+  .scene-wrapper,
+  .scene-panel {
+    will-change: auto !important;
+  }
+}
+
+/* GPU acceleration hints */
+.scrollytelling-track,
+.scene-wrapper {
+  transform: translateZ(0);
+}
