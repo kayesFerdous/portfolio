@@ -51,7 +51,7 @@ export function Hero() {
   }, [reduceMotion])
 
   return (
-    <header className="relative w-full min-h-screen overflow-hidden bg-black flex items-center justify-center">
+    <header className="relative w-full min-h-screen overflow-hidden bg-background flex items-center justify-center">
       {enableParticles && (
         <div className="absolute inset-0 opacity-40">
           <InteractiveParticles />
@@ -66,12 +66,12 @@ export function Hero() {
       >
         <motion.div variants={floatUp} className="mb-12 relative group">
           {/* Profile Image Container with Corner Marks */}
-          <div className="relative w-40 h-40 md:w-48 md:h-48 border border-white/10 bg-black overflow-hidden">
+          <div className="relative w-40 h-40 md:w-48 md:h-48 border border-border bg-background overflow-hidden">
             {/* Corner Marks */}
-            <div className="absolute top-0 left-0 w-2 h-2 bg-white z-20" />
-            <div className="absolute top-0 right-0 w-2 h-2 bg-white z-20" />
-            <div className="absolute bottom-0 left-0 w-2 h-2 bg-white z-20" />
-            <div className="absolute bottom-0 right-0 w-2 h-2 bg-white z-20" />
+            <div className="absolute top-0 left-0 w-2 h-2 bg-foreground z-20" />
+            <div className="absolute top-0 right-0 w-2 h-2 bg-foreground z-20" />
+            <div className="absolute bottom-0 left-0 w-2 h-2 bg-foreground z-20" />
+            <div className="absolute bottom-0 right-0 w-2 h-2 bg-foreground z-20" />
             
             <Image
               src="/professional-developer-portrait.png"
@@ -85,13 +85,13 @@ export function Hero() {
         <h1 className="relative mb-6 flex flex-col items-center">
           <motion.span
             variants={headlineWord}
-            className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-white"
+            className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-foreground"
           >
             Fardows
           </motion.span>
           <motion.span
             variants={headlineWord}
-            className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-neutral-500"
+            className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-muted-foreground"
           >
             Alam Kayes
           </motion.span>

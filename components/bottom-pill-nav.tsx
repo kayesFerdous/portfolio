@@ -3,7 +3,9 @@
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Home, User, Briefcase, Mail, BookOpen } from "lucide-react"
+import { Home, User, Briefcase, Mail, BookOpen, Sun, Moon } from "lucide-react"
+import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 import {
   Tooltip,
   TooltipContent,
@@ -21,6 +23,14 @@ const navItems = [
 
 export function BottomPillNav() {
   const pathname = usePathname()
+  const { setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
 
   return (
     <TooltipProvider delayDuration={0}>
@@ -77,6 +87,24 @@ export function BottomPillNav() {
               )
             })}
           </div>
+
+          <div className="h-px w-6 bg-border/30" />
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                className="relative p-3 rounded-full transition-colors text-muted-foreground hover:bg-primary/10 hover:text-foreground"
+              >
+                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute top-3 left-3 h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Toggle theme</span>
+              </button>
+            </TooltipTrigger>
+            <TooltipContent side="left">
+              <p>Toggle Theme</p>
+            </TooltipContent>
+          </Tooltip>
         </div>
       </motion.nav>
     </TooltipProvider>

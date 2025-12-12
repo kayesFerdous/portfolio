@@ -6,6 +6,7 @@ import "./globals.css"
 import { Footer } from "@/components/footer"
 import { BottomPillNav } from "@/components/bottom-pill-nav"
 import { CornerMarks } from "@/components/corner-marks"
+import { ThemeProvider } from "@/components/theme-provider"
 
 import { Inter as V0_Font_Inter, IBM_Plex_Mono as V0_Font_IBM_Plex_Mono, Playfair_Display as V0_Font_Playfair_Display } from 'next/font/google'
 
@@ -51,13 +52,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={`font-sans antialiased`}>
-        <CornerMarks />
-        <main className="min-h-screen relative z-10">{children}</main>
-        <Footer />
-        <BottomPillNav />
-        <Analytics />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <CornerMarks />
+          <main className="min-h-screen relative z-10">{children}</main>
+          <Footer />
+          <BottomPillNav />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )

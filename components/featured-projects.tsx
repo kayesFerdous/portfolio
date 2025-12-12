@@ -21,7 +21,7 @@ export function FeaturedProjects() {
   const featuredProjects = projects.filter((p) => p.featured)
 
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden bg-black border-t border-white/10">
+    <section className="py-20 md:py-32 relative overflow-hidden bg-background border-t border-border">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <motion.div
@@ -31,10 +31,10 @@ export function FeaturedProjects() {
             transition={{ duration: 0.5 }}
             className="space-y-2"
           >
-            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter uppercase">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tighter uppercase">
               Featured Projects
             </h2>
-            <p className="text-sm font-mono text-neutral-500 uppercase tracking-widest">
+            <p className="text-sm font-mono text-muted-foreground uppercase tracking-widest">
               Selected works & experiments
             </p>
           </motion.div>
@@ -46,7 +46,7 @@ export function FeaturedProjects() {
           >
             <Link 
               href="/projects" 
-              className="group flex items-center gap-2 text-sm font-mono uppercase tracking-wider text-white hover:text-neutral-300 transition-colors"
+              className="group flex items-center gap-2 text-sm font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors"
             >
               View All <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
