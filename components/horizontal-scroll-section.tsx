@@ -89,7 +89,7 @@ export function HorizontalScrollSection() {
   const targetRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start end", "end start"],
+    offset: ["start start", "end end"],
   })
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"])

@@ -58,7 +58,7 @@ export default function Home() {
       <div className="relative z-10 pt-16 md:pt-20">
         <HorizontalScrollSection />
         <FeaturedProjects />
-        {/* <FeatureGrid /> */}
+        <FeatureGrid />
       </div>
     </div>
   )
