@@ -13,7 +13,7 @@ export default function ContactPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance">
-              Get in <span className="gradient-text">Touch</span>
+              Get in Touch
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
               Have a project in mind or want to collaborate? Feel free to reach out!

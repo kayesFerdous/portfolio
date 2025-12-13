@@ -72,12 +72,12 @@ export function FeaturedProjects() {
           transition={{ delay: 0.5 }}
           className="text-center mt-12"
         >
-          <Button asChild size="lg" variant="outline" className="gap-2 group bg-transparent">
+          {/* <Button asChild size="lg" variant="outline" className="gap-2 group bg-transparent">
             <Link href="/projects">
               View All Projects
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-          </Button>
+          </Button> */}
         </motion.div>
       </div>
     </section>

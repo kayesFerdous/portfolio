@@ -10,10 +10,10 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black">
+    <footer className="border-t border-border bg-background">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-xs font-mono uppercase tracking-wider text-neutral-500">
+          <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
             © {new Date().getFullYear()} Fardows Alam Kayes.
           </div>
 
@@ -24,7 +24,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-500 hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label={social.label}
               >
                 <social.icon className="h-4 w-4" />

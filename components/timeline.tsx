@@ -43,7 +43,7 @@ export function Timeline() {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
-            Journey <span className="gradient-text">Timeline</span>
+            Journey <span className="text-green-400">Timeline</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
             Education, experience, and involvement in the tech community

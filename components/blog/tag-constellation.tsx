@@ -99,8 +99,8 @@ export function TagConstellation({ tags, posts, selectedTags, onTagClick }: TagC
       <svg ref={svgRef} className="w-full max-w-4xl" style={{ height: 300 }} role="img" aria-label="Tag constellation">
         <defs>
           <radialGradient id="tagGlow">
-            <stop offset="0%" stopColor="rgb(119, 215, 231)" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="rgb(119, 215, 231)" stopOpacity="0" />
+            <stop offset="0%" stopColor="rgb(74, 222, 128)" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="rgb(74, 222, 128)" stopOpacity="0" />
           </radialGradient>
         </defs>
 
@@ -124,7 +124,7 @@ export function TagConstellation({ tags, posts, selectedTags, onTagClick }: TagC
                 y1={node.y}
                 x2={other.x}
                 y2={other.y}
-                stroke={isHighlighted ? "rgb(119, 215, 231)" : "rgb(119, 215, 231)"}
+                stroke={isHighlighted ? "rgb(74, 222, 128)" : "rgb(74, 222, 128)"}
                 strokeOpacity={isHighlighted ? 0.6 : 0.15}
                 strokeWidth={isHighlighted ? 2 : 1}
                 initial={{ pathLength: 0 }}
@@ -153,8 +153,8 @@ export function TagConstellation({ tags, posts, selectedTags, onTagClick }: TagC
                 cx={node.x}
                 cy={node.y}
                 r={node.radius}
-                fill={isSelected ? "rgb(119, 215, 231)" : "rgba(119, 215, 231, 0.1)"}
-                stroke="rgb(119, 215, 231)"
+                fill={isSelected ? "rgb(74, 222, 128)" : "rgba(74, 222, 128, 0.1)"}
+                stroke="rgb(74, 222, 128)"
                 strokeWidth={isHighlighted ? 3 : 1.5}
                 strokeOpacity={isHighlighted ? 1 : 0.5}
                 className="cursor-pointer"
@@ -173,8 +173,8 @@ export function TagConstellation({ tags, posts, selectedTags, onTagClick }: TagC
                 y={node.y}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                className="text-xs font-medium fill-current pointer-events-none select-none"
-                style={{ fill: isSelected ? "rgb(9, 9, 11)" : "rgb(250, 250, 250)" }}
+                className="text-xs font-medium pointer-events-none select-none fill-foreground"
+                style={{ fill: isSelected ? "rgb(0, 0, 0)" : "var(--foreground)" }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: i * 0.05 + 0.2 }}

@@ -35,14 +35,14 @@ export function BottomPillNav() {
   return (
     <TooltipProvider delayDuration={0}>
       <motion.nav
-        initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.5 }}
-        className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:block"
+        className="fixed z-50 bottom-6 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:bottom-auto md:right-6 md:top-1/2 md:-translate-y-1/2"
         role="navigation"
         aria-label="Primary quick navigation"
       >
-        <div className="rounded-full px-2 py-4 flex flex-col items-center gap-4 bg-card/60 backdrop-blur-xl border border-primary/20 shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(119,215,231,0.1)]">
+        <div className="rounded-full px-4 py-2 md:px-2 md:py-4 flex flex-row md:flex-col items-center gap-4 bg-card/60 backdrop-blur-xl border border-primary/20 shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(119,215,231,0.1)]">
           {/* <Link href="/" className="flex items-center justify-center group">
             <motion.div 
               whileHover={{ scale: 1.05 }} 
@@ -53,9 +53,9 @@ export function BottomPillNav() {
             </motion.div>
           </Link> */}
           
-          <div className="h-px w-6 bg-border/30" />
+          <div className="w-px h-6 md:h-px md:w-6 bg-border/30 hidden md:block" />
           
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-row md:flex-col gap-2">
             {navItems.map((item) => {
               const Icon = item.icon
               const isActive = pathname === item.href || (item.href === "/blog" && pathname.startsWith("/blog"))
@@ -71,16 +71,23 @@ export function BottomPillNav() {
                       >
                         <Icon className="h-5 w-5" />
                         {isActive && (
-                          <motion.div
-                            layoutId="pill-indicator"
-                            className="absolute top-1/2 -left-1 -translate-y-1/2 w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.6)]"
-                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                          />
+                          <>
+                            <motion.div
+                              layoutId="pill-indicator-desktop"
+                              className="absolute top-1/2 -left-1 -translate-y-1/2 w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.6)] hidden md:block"
+                              transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                            />
+                            <motion.div
+                              layoutId="pill-indicator-mobile"
+                              className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.6)] md:hidden block"
+                              transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                            />
+                          </>
                         )}
                       </motion.div>
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent side="left">
+                  <TooltipContent side="left" className="hidden md:block">
                     <p>{item.label}</p>
                   </TooltipContent>
                 </Tooltip>
@@ -88,7 +95,7 @@ export function BottomPillNav() {
             })}
           </div>
 
-          <div className="h-px w-6 bg-border/30" />
+          <div className="w-px h-6 md:h-px md:w-6 bg-border/30" />
 
           <Tooltip>
             <TooltipTrigger asChild>
@@ -101,7 +108,7 @@ export function BottomPillNav() {
                 <span className="sr-only">Toggle theme</span>
               </button>
             </TooltipTrigger>
-            <TooltipContent side="left">
+            <TooltipContent side="left" className="hidden md:block">
               <p>Toggle Theme</p>
             </TooltipContent>
           </Tooltip>

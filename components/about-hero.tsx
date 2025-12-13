@@ -45,7 +45,7 @@ export function AboutHero() {
         >
           <motion.div variants={itemVariants} className="space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance">
-              About <span className="gradient-text">Me</span>
+              About <span className="text-green-400">Me</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground text-balance leading-relaxed">
               Fardows Alam Kayes — Full Stack Developer & AI Application Builder

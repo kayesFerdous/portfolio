@@ -1,31 +1,24 @@
 "use client"
 
-import { motion, useReducedMotion } from "framer-motion"
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
+import { motion, useReducedMotion, Variants } from "framer-motion"
+import { ArrowRight, Github, Linkedin, Mail, ChevronDown, Terminal } from "lucide-react"
 import Link from "next/link"
-import dynamic from "next/dynamic"
 import { useMemo } from "react"
 import Image from "next/image"
+import { BlackholeBg } from "@/components/blackhole-bg"
+import { HackerText } from "@/components/ui/hacker-text"
 
-const InteractiveParticles = dynamic(
-  () => import("@/components/interactive-particles").then((mod) => ({ default: mod.InteractiveParticles })),
-  {
-    ssr: false,
-    loading: () => null,
-  },
-)
-
-const heroVariants = {
+const heroVariants: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.08 } },
 }
 
-const headlineWord = {
+const headlineWord: Variants = {
   hidden: { y: 40, opacity: 0 },
   show: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] } },
 }
 
-const floatUp = {
+const floatUp: Variants = {
   hidden: { y: 20, opacity: 0 },
   show: { y: 0, opacity: 1, transition: { duration: 0.9, ease: "easeOut" } },
 }
@@ -51,12 +44,10 @@ export function Hero() {
   }, [reduceMotion])
 
   return (
-    <header className="relative w-full min-h-screen overflow-hidden bg-background flex items-center justify-center">
-      {enableParticles && (
-        <div className="absolute inset-0 opacity-40">
-          <InteractiveParticles />
-        </div>
-      )}
+    <header className="relative w-full min-h-screen overflow-hidden bg-black flex items-center justify-center text-white">
+      <div className="absolute inset-0 z-0">
+        <BlackholeBg />
+      </div>
 
       <motion.div
         initial="hidden"
@@ -65,35 +56,37 @@ export function Hero() {
         className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center justify-center text-center"
       >
         <motion.div variants={floatUp} className="mb-12 relative group">
-          {/* Profile Image Container with Corner Marks */}
-          <div className="relative w-40 h-40 md:w-48 md:h-48 border border-border bg-background overflow-hidden">
-            {/* Corner Marks */}
-            <div className="absolute top-0 left-0 w-2 h-2 bg-foreground z-20" />
-            <div className="absolute top-0 right-0 w-2 h-2 bg-foreground z-20" />
-            <div className="absolute bottom-0 left-0 w-2 h-2 bg-foreground z-20" />
-            <div className="absolute bottom-0 right-0 w-2 h-2 bg-foreground z-20" />
-            
+          {/* Profile Image Container */}
+          <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-2 border-white/10 bg-black/50 overflow-hidden shadow-2xl backdrop-blur-sm">
             <Image
               src="/professional-developer-portrait.png"
               alt="Fardows Alam Kayes"
               fill
-              className="object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500"
+              className="object-cover grayscale opacity-90 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500"
             />
           </div>
         </motion.div>
 
         <h1 className="relative mb-6 flex flex-col items-center">
+          <motion.div
+            variants={headlineWord}
+            className="flex items-center gap-4 mb-2"
+          >
+            <span className="text-orange-500 font-mono text-xl md:text-2xl font-bold opacity-80">&gt;_</span>
+            <span className="text-sm md:text-base font-mono text-orange-500/80 tracking-widest uppercase">System.init(Developer)</span>
+          </motion.div>
+          
           <motion.span
             variants={headlineWord}
-            className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-foreground"
+            className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-white"
           >
-            Fardows
+            <HackerText text="Fardows Alam" speed={40} />
           </motion.span>
           <motion.span
             variants={headlineWord}
-            className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-muted-foreground"
+            className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-neutral-400"
           >
-            Alam Kayes
+            <HackerText text="Kayes" speed={40} />
           </motion.span>
         </h1>
 

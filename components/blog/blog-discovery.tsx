@@ -53,7 +53,7 @@ export function BlogDiscovery({ posts, tags }: BlogDiscoveryProps) {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-            <span className="gradient-text">Blog</span>
+            <span>Blog</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
             Thoughts on web development, AI, and building better software
