@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Search } from "lucide-react"
 import { projects } from "@/data/projects"
 import { ProjectCard } from "@/components/project-card"
-import { ProjectFilter } from "@/components/project-filter"
 import { Input } from "@/components/ui/input"
 
 export default function ProjectsPage() {
@@ -64,9 +63,21 @@ export default function ProjectsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-12"
+          className="mb-12 flex flex-wrap justify-center gap-3"
         >
-          <ProjectFilter activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+          {["All", "Frontend", "Backend", "AI", "Full Stack"].map((filter) => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`px-6 py-2 rounded-full font-medium transition-all ${
+                activeFilter === filter
+                  ? "bg-green-400 text-black"
+                  : "bg-muted hover:bg-muted/80 text-foreground"
+              }`}
+            >
+              {filter}
+            </button>
+          ))}
         </motion.div>
 
         {/* Projects Grid */}

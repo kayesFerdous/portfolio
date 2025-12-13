@@ -5,7 +5,7 @@ const socialLinks = [
   { icon: Github, href: "https://github.com/kayesFerdous", label: "GitHub" },
   { icon: Linkedin, href: "https://linkedin.com/in/kayees-ferdous", label: "LinkedIn" },
   { icon: Mail, href: "mailto:kayesfardows@gmail.com", label: "Email" },
-  { icon: Globe, href: "https://kayees.me", label: "Website" },
+  // { icon: Globe, href: "https://kayees.me", label: "Website" },
 ]
 
 export function Footer() {

@@ -1,10 +1,16 @@
 import { ContactForm } from "@/components/contact-form"
-import { ContactInfo } from "@/components/contact-info"
+import { Github, Linkedin, Mail, Globe } from "lucide-react"
 
 export const metadata = {
   title: "Contact | Fardows Alam Kayes",
   description: "Get in touch with Fardows Alam Kayes for collaboration, project inquiries, or opportunities.",
 }
+
+const contactLinks = [
+  { icon: Mail, label: "Email", value: "kayesfardows@gmail.com", href: "mailto:kayesfardows@gmail.com" },
+  { icon: Github, label: "GitHub", value: "github.com/kayesFerdous", href: "https://github.com/kayesFerdous" },
+  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/kayees-ferdous", href: "https://linkedin.com/in/kayees-ferdous" },
+]
 
 export default function ContactPage() {
   return (
@@ -21,7 +27,34 @@ export default function ContactPage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
-            <ContactInfo />
+            {/* Contact Info */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+                <div className="space-y-6">
+                  {contactLinks.map((link) => {
+                    const Icon = link.icon
+                    return (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-start gap-4 group"
+                      >
+                        <div className="p-3 rounded-lg bg-muted/50 group-hover:bg-primary/10 transition-colors">
+                          <Icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-foreground">{link.label}</p>
+                          <p className="text-muted-foreground group-hover:text-foreground transition-colors">{link.value}</p>
+                        </div>
+                      </a>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
             <ContactForm />
           </div>
         </div>

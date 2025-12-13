@@ -7,13 +7,7 @@ import { Footer } from "@/components/footer"
 import { BottomPillNav } from "@/components/bottom-pill-nav"
 import { CornerMarks } from "@/components/corner-marks"
 import { ThemeProvider } from "@/components/theme-provider"
-
-import { Inter as V0_Font_Inter, IBM_Plex_Mono as V0_Font_IBM_Plex_Mono, Playfair_Display as V0_Font_Playfair_Display } from 'next/font/google'
-
-// Initialize fonts
-const _inter = V0_Font_Inter({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
-const _ibmPlexMono = V0_Font_IBM_Plex_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700"] })
-const _playfairDisplay = V0_Font_Playfair_Display({ subsets: ['latin'], weight: ["400","500","600","700","800","900"] })
+import { Chatbot } from "@/components/chatbot"
 
 export const metadata: Metadata = {
   title: "Fardows Alam Kayes | Full Stack Developer & AI Engineer",
@@ -64,6 +58,7 @@ export default function RootLayout({
           <main className="min-h-screen relative z-10">{children}</main>
           <Footer />
           <BottomPillNav />
+          <Chatbot />
           <Analytics />
         </ThemeProvider>
       </body>

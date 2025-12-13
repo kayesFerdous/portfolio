@@ -10,7 +10,7 @@ export interface Project {
   githubUrl?: string
   liveUrl?: string
   imageUrl: string
-  responsibilities?: string[]
+  description: string
   featured?: boolean
 }
 

@@ -1,9 +1,8 @@
 "use client"
 
 import { motion, useReducedMotion, Variants } from "framer-motion"
-import { ArrowRight, Github, Linkedin, Mail, ChevronDown, Terminal } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
-import { useMemo } from "react"
 import Image from "next/image"
 import { BlackholeBg } from "@/components/blackhole-bg"
 import { HackerText } from "@/components/ui/hacker-text"
@@ -24,25 +23,6 @@ const floatUp: Variants = {
 }
 
 export function Hero() {
-  const reduceMotion = useReducedMotion()
-
-  const enableParticles = useMemo(() => {
-    if (reduceMotion) return false
-    if (typeof window === "undefined") return false
-
-    // Disable on mobile for performance
-    if (window.innerWidth < 768) return false
-
-    // Check WebGL support
-    try {
-      const canvas = document.createElement("canvas")
-      const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl")
-      return !!gl
-    } catch {
-      return false
-    }
-  }, [reduceMotion])
-
   return (
     <header className="relative w-full min-h-screen overflow-hidden bg-black flex items-center justify-center text-white">
       <div className="absolute inset-0 z-0">
@@ -80,21 +60,21 @@ export function Hero() {
             variants={headlineWord}
             className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-white"
           >
-            <HackerText text="Fardows Alam" speed={40} />
+            <HackerText text="Kayes" speed={60} />
           </motion.span>
-          <motion.span
+          {/* <motion.span
             variants={headlineWord}
             className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-neutral-400"
           >
             <HackerText text="Kayes" speed={40} />
-          </motion.span>
+          </motion.span> */}
         </h1>
 
         <motion.p
           variants={floatUp}
           className="max-w-2xl mx-auto text-sm md:text-base font-mono text-neutral-400 uppercase tracking-widest mb-12"
         >
-          Full Stack Developer & AI Engineer
+          Engineering robust backends and modern frontends, with a passion for Agentic AI.
         </motion.p>
 
         <motion.div variants={floatUp} className="flex flex-wrap justify-center gap-6">

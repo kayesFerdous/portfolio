@@ -2,44 +2,44 @@
 
 import { useRef, useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Code2, Database, Brain, Zap, Globe, Sparkles } from "lucide-react"
+import { Code2, Database, Brain, Zap, Container, Sparkles } from "lucide-react"
 
 const panels = [
   {
-    icon: Code2,
-    title: "Full Stack",
-    subtitle: "Development",
-    description: "Building scalable applications with Next.js, React, and modern web technologies",
-  },
-  {
     icon: Database,
     title: "Backend",
-    subtitle: "Architecture",
-    description: "FastAPI, PostgreSQL, Redis - creating robust server-side solutions",
+    subtitle: "My Comfort Zone",
+    description: "I love the logic side of things. I build solid, efficient backends using FastAPI, PostgreSQL, and Redis.",
+  },
+  {
+    icon: Code2,
+    title: "Full Stack",
+    subtitle: "The Whole Picture",
+    description: "I don't just stay on the server. I bring those backends to life with Next.js and React interfaces.",
   },
   {
     icon: Brain,
-    title: "AI & RAG",
-    subtitle: "Systems",
-    description: "LangChain, vector databases, and intelligent document processing",
+    title: "AI & Agents",
+    subtitle: "The Smart Stuff",
+    description: "Currently deep diving into Agentic AI, LangChain, LangGraph, and building RAG systems that actually understand context.",
   },
   {
     icon: Zap,
     title: "Real-time",
-    subtitle: "Features",
-    description: "WebSockets, live updates, and responsive user experiences",
+    subtitle: "Live Action",
+    description: "I like apps that feel alive. Using WebSockets for instant updates and chat features.",
   },
   {
-    icon: Globe,
-    title: "API",
-    subtitle: "Integration",
-    description: "Seamless third-party integrations and microservices architecture",
+    icon: Container, // You'll likely need to import 'Container' or 'Box' from your icon library
+    title: "DevOps",
+    subtitle: "Workflow",
+    description: "I use Docker to make sure my apps run everywhere (not just on my machine) and Git to keep my code history organized.",
   },
   {
     icon: Sparkles,
     title: "Innovation",
     subtitle: "Driven",
-    description: "Always exploring cutting-edge technologies and best practices",
+    description: "Because of my OCD, I always exploring cutting-edge technologies and best practices",
   },
 ]
 

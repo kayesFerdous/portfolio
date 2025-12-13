@@ -73,14 +73,14 @@ export function AboutHero() {
                 FastAPI) and AI Application Building. Experienced in creating RAG-based chatbots and scalable backend
                 systems.
               </p>
-              <p>
+              {/* <p>
                 Actively expanding knowledge in areas like Agentic AI (LangGraph) and committed to the competitive
                 programming community at university.
-              </p>
+              </p> */}
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="glass border border-border rounded-lg p-6 md:p-8 space-y-6">
+          {/* <motion.div variants={itemVariants} className="glass border border-border rounded-lg p-6 md:p-8 space-y-6">
             <h2 className="text-2xl font-semibold flex items-center gap-2">
               <span className="w-1 h-6 bg-primary rounded-full" />
               Education
@@ -114,7 +114,7 @@ export function AboutHero() {
                 <span>Building production-ready applications with modern tech stacks</span>
               </li>
             </ul>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </section>

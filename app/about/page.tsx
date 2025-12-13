@@ -1,6 +1,5 @@
 import { AboutHero } from "@/components/about-hero"
 import { Timeline } from "@/components/timeline"
-import { SkillsGrid } from "@/components/skills-grid"
 
 export const metadata = {
   title: "About | Fardows Alam Kayes",
@@ -12,8 +11,7 @@ export default function AboutPage() {
   return (
     <>
       <AboutHero />
-      {/* <SkillsGrid /> */}
-      <Timeline />
+      {/* <Timeline /> */}
     </>
   )
 }
