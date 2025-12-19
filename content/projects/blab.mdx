@@ -1,0 +1,85 @@
+---
+title: "Blab: Real-Time Chat Platform"
+slug: "blab"
+shortDescription: "Real-time messaging app with global chat, private rooms, and request-approval flows."
+fullDescription: "A modern real-time chat platform built with Next.js featuring global chat rooms, private messaging, and sophisticated request-approval flows. Designed with a focus on user experience and real-time performance."
+category: ["Frontend", "Full Stack"]
+tech: ["Next.js", "TypeScript", "Tailwind CSS", "WebSockets", "Vercel"]
+githubUrl: "https://github.com/kayesFerdous/blab-10"
+liveUrl: "https://blab-10.vercel.app"
+imageUrl: "/blab-10.png"
+featured: true
+---
+
+A modern real-time chat platform built with Next.js featuring global chat rooms, private messaging, and sophisticated request-approval flows. Designed with a focus on user experience and real-time performance.
+
+## Key Features
+
+### Real-time Messaging
+Instant global chat and private messaging powered by WebSockets, ensuring seamless communication with minimal latency.
+
+### Responsive UI
+Built with Tailwind CSS for a seamless experience across all devices - from mobile to desktop.
+
+### Approval Flows
+Sophisticated logic for private room access management, including:
+- User request system
+- Admin approval workflow
+- Role-based permissions
+- Invitation management
+
+### Cloud Deployment
+Optimized for Vercel with:
+- Edge runtime support
+- Automatic scaling
+- Global CDN distribution
+- Zero-downtime deployments
+
+## Technical Implementation
+
+### Architecture
+The platform follows a modern serverless architecture with real-time capabilities:
+
+```typescript
+// Real-time connection handler
+const socket = io({
+  transports: ['websocket'],
+  upgrade: false,
+  reconnection: true,
+  reconnectionDelay: 1000,
+  reconnectionAttempts: 5
+});
+```
+
+### State Management
+Efficient state management using React Context and custom hooks for:
+- User authentication state
+- Active conversations
+- Message history
+- Online presence
+
+### Performance Optimizations
+- Message pagination and infinite scroll
+- Optimistic UI updates
+- Debounced typing indicators
+- Lazy loading of chat rooms
+
+## User Experience
+
+The platform prioritizes user experience with:
+- Intuitive navigation
+- Real-time notifications
+- Message read receipts
+- User presence indicators
+- Emoji support
+- File sharing capabilities
+
+## Future Enhancements
+
+Planned features include:
+- Voice and video calling
+- Message reactions
+- Thread conversations
+- Advanced search functionality
+- Message encryption
+- Mobile applications

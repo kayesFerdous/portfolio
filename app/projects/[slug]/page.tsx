@@ -2,7 +2,7 @@ import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ExternalLink, Github } from "lucide-react"
-import { projects } from "@/data/projects"
+import { getAllProjectsFromMdx, getProjectBySlug } from "@/lib/projects"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ProjectDetailContent } from "@/components/project-detail-content"
@@ -12,6 +12,7 @@ interface ProjectPageProps {
 }
 
 export async function generateStaticParams() {
+  const projects = getAllProjectsFromMdx()
   return projects.map((project) => ({
     slug: project.slug,
   }))
@@ -19,7 +20,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props: ProjectPageProps) {
   const params = await props.params
-  const project = projects.find((p) => p.slug === params.slug)
+  const project = getProjectBySlug(params.slug)
 
   if (!project) {
     return {
@@ -35,7 +36,7 @@ export async function generateMetadata(props: ProjectPageProps) {
 
 export default async function ProjectPage(props: ProjectPageProps) {
   const params = await props.params
-  const project = projects.find((p) => p.slug === params.slug)
+  const project = getProjectBySlug(params.slug)
 
   if (!project) {
     notFound()

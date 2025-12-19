@@ -165,7 +165,7 @@ export function ReaderPanel({ post }: ReaderPanelProps) {
                   return (
                     <span className="block my-8">
                       <Image
-                        src={src || ""}
+                        src={String(src || "")}
                         alt={alt || ""}
                         width={800}
                         height={450}

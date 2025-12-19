@@ -34,7 +34,7 @@ A modern real-time chat platform built with Next.js featuring global chat rooms,
     category: ["AI", "Backend"],
     tech: ["Python", "FastAPI", "LangChain", "OpenAI", "Vector DB"],
     githubUrl: "https://github.com/kayesFerdous/AskMyPDF",
-    imageUrl: "/ai-pdf-chat-interface-with-document-viewer.jpg",
+    imageUrl: "/AskMyPdf-template.png",
     description: `
 A sophisticated RAG (Retrieval-Augmented Generation) system that enables intelligent conversations with PDF documents. Built using LangChain and OpenAI, it processes documents, creates vector embeddings, and provides contextually relevant answers to user queries.
 

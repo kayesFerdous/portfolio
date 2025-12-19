@@ -10,7 +10,7 @@ export interface Project {
   githubUrl?: string
   liveUrl?: string
   imageUrl: string
-  description: string
+  description?: string // Optional: for backward compatibility with inline description
   featured?: boolean
 }
 

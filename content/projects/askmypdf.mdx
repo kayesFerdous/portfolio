@@ -1,0 +1,45 @@
+---
+title: "AskMyPDF: RAG-Powered Document Assistant"
+slug: "askmypdf"
+shortDescription: "Retrieval-Augmented Generation system to chat with PDFs."
+fullDescription: "A simple Retrieval-Augmented Generation (RAG) app. It reads a PDF and answers your questions using a vector store and an LLM."
+category: ["AI", "Backend", "Rag"]
+tech: ["Python", "FastAPI", "LangChain", "OpenAI", "Vector DB"]
+githubUrl: "https://github.com/kayesFerdous/AskMyPDF"
+imageUrl: "/AskMyPdf-template.png"
+featured: true
+---
+
+## Overview
+
+### Models used
+- LLM: Google Gemini 2.5 Flash (via LangChain Google GenAI)
+- Embeddings: sentence-transformers/all-mpnet-base-v2 (Hugging Face)
+
+### How it works (quick)
+1) Load and split `data/story.pdf` into chunks. 2) Embed and store in a local Chroma DB. 3) Retrieve similar chunks for your question. 4) Ask the LLM to answer using that context.
+
+### Setup (uv)
+Prereqs: Python 3.13+, uv installed.
+
+1) Create `.env` with your key:
+	```env
+	GOOGLE_API_KEY=your-google-api-key
+	```
+2) Put your PDF at `data/story.pdf` (or change the path in `src/main.py`).
+3) Install deps:
+	```zsh
+	uv sync
+	```
+
+### Run
+Ask a question from the terminal:
+```zsh
+uv run -m src.main "What is SHE doing in India?"
+```
+
+### Notes
+- Vector DB files are stored in `chroma_langchain_db/`.
+- To force a fresh index, delete that folder and run again.
+- Key files: `src/main.py`, `src/vectorstore.py`, `src/rag.py`, `src/config.py`.
+ - This is a learning project.
