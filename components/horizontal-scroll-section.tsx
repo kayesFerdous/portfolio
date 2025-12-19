@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Code2, Database, Brain, Zap, Container, Sparkles } from "lucide-react"
 
@@ -44,41 +44,23 @@ const panels = [
 ]
 
 function ScrollCard({ panel }: { panel: typeof panels[0] }) {
-  const [isHovered, setIsHovered] = useState(false)
   const Icon = panel.icon
 
   return (
     <motion.div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="flex-shrink-0 w-[85vw] md:w-[450px] h-[500px] bg-background border border-border p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group"
+      className="flex-shrink-0 w-[85vw] md:w-[450px] h-[500px] bg-white text-black dark:bg-black dark:text-white border border-black/10 dark:border-white/10 p-8 md:p-12 flex flex-col justify-between relative overflow-hidden"
     >
-      {/* Corner Marks */}
-      <div className="absolute inset-0 pointer-events-none z-20">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="absolute top-0 left-0 w-full h-full"
-        >
-          <div className="absolute top-0 left-0 w-2 h-2 bg-foreground" />
-          <div className="absolute top-0 right-0 w-2 h-2 bg-foreground" />
-          <div className="absolute bottom-0 left-0 w-2 h-2 bg-foreground" />
-          <div className="absolute bottom-0 right-0 w-2 h-2 bg-foreground" />
-        </motion.div>
-      </div>
-
       <div className="relative z-10">
-        <Icon className="h-12 w-12 md:h-16 md:w-16 text-foreground mb-6 md:mb-8" strokeWidth={1} />
+        <Icon className="h-12 w-12 md:h-16 md:w-16 text-black dark:text-white mb-6 md:mb-8" strokeWidth={1} />
         <div className="space-y-2">
-          <h3 className="text-4xl md:text-5xl font-bold text-foreground dark:text-muted-foreground group-hover:text-muted-foreground dark:group-hover:text-foreground transition-colors tracking-tighter uppercase">{panel.title}</h3>
-          <h4 className="text-2xl md:text-3xl font-mono text-muted-foreground uppercase tracking-widest">
+          <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white tracking-tighter uppercase">{panel.title}</h3>
+          <h4 className="text-2xl md:text-3xl font-mono text-black/70 dark:text-white/70 uppercase tracking-widest">
             {panel.subtitle}
           </h4>
         </div>
       </div>
 
-      <p className="text-sm md:text-base font-mono text-muted-foreground leading-relaxed relative z-10 border-t border-border pt-6">
+      <p className="text-sm md:text-base font-mono text-black/70 dark:text-white/70 leading-relaxed relative z-10 border-t border-black/10 dark:border-white/10 pt-6">
         {panel.description}
       </p>
     </motion.div>

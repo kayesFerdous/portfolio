@@ -36,7 +36,7 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
           className="text-center mb-12 md:mb-16"
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance">
-            My <span className="text-green-400">Projects</span>
+            My Projects
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
             A collection of full-stack applications, AI systems, and creative solutions
