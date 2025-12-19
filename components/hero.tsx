@@ -60,7 +60,7 @@ export function Hero() {
             variants={headlineWord}
             className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-white"
           >
-            <HackerText text="Kayes" speed={60} />
+            <HackerText text="K a y e s" speed={55} />
           </motion.span>
           {/* <motion.span
             variants={headlineWord}
