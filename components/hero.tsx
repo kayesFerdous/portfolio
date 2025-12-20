@@ -4,7 +4,8 @@ import { motion, useReducedMotion, Variants } from "framer-motion"
 import { Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { BlackholeBg } from "@/components/blackhole-bg"
+import dynamic from "next/dynamic"
+const BlackholeBg = dynamic(() => import("@/components/blackhole-bg").then(m => m.BlackholeBg), { ssr: false })
 import { HackerText } from "@/components/ui/hacker-text"
 
 const heroVariants: Variants = {
@@ -60,7 +61,7 @@ export function Hero() {
             variants={headlineWord}
             className="block text-[clamp(40px,8vw,120px)] tracking-tighter font-bold uppercase leading-[0.9] text-white"
           >
-            <HackerText text="K a y e s" speed={55} />
+            <HackerText text="K a y e s" speed={45} />
           </motion.span>
           {/* <motion.span
             variants={headlineWord}

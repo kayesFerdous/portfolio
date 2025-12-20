@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer"
 import { BottomPillNav } from "@/components/bottom-pill-nav"
 import { CornerMarks } from "@/components/corner-marks"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Chatbot } from "@/components/chatbot"
+import { ChatbotLazy } from "@/components/chatbot-lazy"
 
 export const metadata: Metadata = {
   title: "Fardows Alam Kayes | Full Stack Developer & AI Engineer",
@@ -58,7 +58,7 @@ export default function RootLayout({
           <main className="min-h-screen relative z-10">{children}</main>
           <Footer />
           <BottomPillNav />
-          <Chatbot />
+          <ChatbotLazy />
           <Analytics />
         </ThemeProvider>
       </body>
