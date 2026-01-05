@@ -10,7 +10,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { ChatbotLazy } from "@/components/chatbot-lazy"
 
 export const metadata: Metadata = {
-  title: "Fardows Alam Kayes | Full Stack Developer & AI Engineer",
+  title: "Kayes",
   description:
     "Full Stack Developer & AI Application Builder specializing in Next.js, FastAPI, and AI systems. Building RAG applications and scalable backend solutions.",
   generator: "v0.app",

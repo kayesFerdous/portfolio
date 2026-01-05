@@ -39,7 +39,7 @@ const panels = [
     icon: Sparkles,
     title: "Innovation",
     subtitle: "Driven",
-    description: "Because of my OCD, I always exploring cutting-edge technologies and best practices",
+    description: "Because of my OCD, I am always exploring cutting-edge technologies and best practices",
   },
 ]
 

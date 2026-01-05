@@ -2,7 +2,7 @@ import { getAllPosts, getAllTags } from "@/lib/blog"
 import { BlogDiscovery } from "@/components/blog/blog-discovery"
 
 export const metadata = {
-  title: "Blog | Fardows Alam Kayes",
+  title: "Blog | Kayes",
   description: "Thoughts on web development, AI, and software engineering",
   openGraph: {
     title: "Blog | Fardows Alam Kayes",

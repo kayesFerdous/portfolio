@@ -57,7 +57,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           src={project.imageUrl || "/placeholder.svg"}
           alt={project.title}
           fill
-          className="object-cover transition-transform duration-500 opacity-100 group-hover:opacity-80"
+          className="object-cover transition-all duration-500 group-hover:brightness-110"
         />
         
         {/* Category badges */}

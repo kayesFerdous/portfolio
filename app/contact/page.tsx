@@ -2,7 +2,7 @@ import { ContactForm } from "@/components/contact-form"
 import { Github, Linkedin, Mail, Globe } from "lucide-react"
 
 export const metadata = {
-  title: "Contact | Fardows Alam Kayes",
+  title: "Contact | Kayes",
   description: "Get in touch with Fardows Alam Kayes for collaboration, project inquiries, or opportunities.",
 }
 

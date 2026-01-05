@@ -75,7 +75,7 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-2 rounded-full font-medium transition-all ${
                 activeFilter === filter
-                  ? "bg-green-400 text-black"
+                  ? "bg-orange-500 text-black"
                   : "bg-muted hover:bg-muted/80 text-foreground"
               }`}
             >
