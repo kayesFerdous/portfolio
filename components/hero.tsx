@@ -1,12 +1,13 @@
 "use client"
 
 import { motion, useReducedMotion, Variants } from "framer-motion"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Download, FileText, Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 const BlackholeBg = dynamic(() => import("@/components/blackhole-bg").then(m => m.BlackholeBg), { ssr: false })
 import { HackerText } from "@/components/ui/hacker-text"
+import { Button } from "@/components/ui/button"
 
 const heroVariants: Variants = {
   hidden: {},
@@ -95,6 +96,29 @@ export function Hero() {
               <span className="hidden md:inline">{social.label}</span>
             </Link>
           ))}
+        </motion.div>
+
+        <motion.div variants={floatUp} className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Button
+            asChild
+            variant="outline"
+            className="border-white/20 bg-white/5 text-white/90 hover:bg-white/10 hover:text-white"
+          >
+            <Link href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+              <FileText className="h-4 w-4" />
+              View CV
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="border-white/20 bg-white/5 text-white/90 hover:bg-white/10 hover:text-white"
+          >
+            <a href="/cv.pdf" download>
+              <Download className="h-4 w-4" />
+              Download CV
+            </a>
+          </Button>
         </motion.div>
       </motion.div>
     </header>
